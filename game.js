@@ -16,7 +16,7 @@ function preload () {
   // Load & Define our game assets
   game.load.image('sky', 'sky.png')
   game.load.image('food', 'food.png')
-  game.load.spritesheet('snakeball', 'circle.png', 32, 32)
+  game.load.spritesheet('snakeball', 'circle.png')
 }
 
 function create () {
