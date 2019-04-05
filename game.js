@@ -33,7 +33,7 @@ function create () {
     //  We need to enable physics on the player
   game.physics.arcade.enable(player)
 
-    //  Player physics properties. Give the little guy a slight bounce.
+    //  Player physics properties.
   player.body.collideWorldBounds = true
 
     //  Our two animations, walking left and right.
@@ -50,9 +50,6 @@ function create () {
   for (var i = 0; i < 12; i++) {
     let diamond = diamonds.create(i * 70, 0, 'diamond')
 
-      //  Drop em from the sky and bounce a bit
-    diamond.body.gravity.y = 1000
-    diamond.body.bounce.y = 0.3 + Math.random() * 0.2
   }
 
     //  Create the score text
@@ -76,10 +73,10 @@ function update () {
     player.animations.play('left')
   } 
   else if (cursors.up.isDown) {
-    player.body.velocity.y = 150
+    player.body.velocity.y = -150
   }
   else if (cursors.down.isDown) {
-    player.body.velocity.y = -150
+    player.body.velocity.y = 150
   }
   else if (cursors.right.isDown) {
     player.body.velocity.x = 150
