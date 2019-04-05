@@ -24,7 +24,7 @@ function create () {
   game.physics.startSystem(Phaser.Physics.ARCADE)
 
     //  backround
-  game.add.tilesprite(0, 0, 'grid')
+  game.add.tileSprite(0, 0, 'grid')
 
     // spawn player
   player = game.add.sprite(400,300, 'snakeball')
