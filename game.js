@@ -87,7 +87,7 @@ function update () {
     // Show an alert modal when score reaches 120
   if (score === 120) {
     score = 0
-    player = game.add.sprite(32, game.world.height - 150, 'snakeball2')
+    player = (32, game.world.height - 150, 'snakeball2')
   }
 }
 
