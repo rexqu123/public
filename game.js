@@ -34,8 +34,6 @@ function create () {
   game.physics.arcade.enable(player)
 
     //  Player physics properties. Give the little guy a slight bounce.
-  player.body.bounce.y = 0.2
-  player.body.gravity.y = 800
   player.body.collideWorldBounds = true
 
     //  Our two animations, walking left and right.
@@ -67,10 +65,6 @@ function create () {
 function update () {
     //  We want the player to stop when not moving
   player.body.velocity.x = 0
-
-    //  Setup collisions for the player, diamonds, and our platforms
-  game.physics.arcade.collide(player, platforms)
-  game.physics.arcade.collide(diamonds, platforms)
 
     //  Call callectionDiamond() if player overlaps with a diamond
   game.physics.arcade.overlap(player, diamonds, collectDiamond, null, this)
