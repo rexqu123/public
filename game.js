@@ -27,7 +27,7 @@ function create () {
   game.add.sprite(0, 0, 'sky')
 
     // The player and its settings
-  player = game.add.sprite(game.world.height - 150, 'snakeball')
+  player = game.add.sprite(32, game.world.height - 150, 'snakeball')
 
     //  We need to enable physics on the player
   game.physics.arcade.enable(player)
