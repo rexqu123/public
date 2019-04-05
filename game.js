@@ -7,57 +7,51 @@ const game = new Phaser.Game(800, 600, Phaser.AUTO, '', {
 // Declare shared variables at the top so all methods can access them
 let score = 0
 let scoreText
-let platforms
-let diamonds
+let food
 let cursors
 let player 
 
 function preload () {
-  // Load & Define our game assets
-  game.load.image('sky', 'grid.png')
+  // Load assets
+  game.load.image('grid', 'grid.png')
   game.load.image('food', 'food.png')
   game.load.image('snakeball', 'circle.png')
   game.load.image('snakeball2', 'circle2.png')
 }
 
 function create () {
-    //  We're going to be using physics, so enable the Arcade Physics system
+    //  Enable ARCADE physics
   game.physics.startSystem(Phaser.Physics.ARCADE)
 
-    //  A simple background for our game
-  game.add.sprite(0, 0, 'sky')
+    //  backround
+  game.add.sprite(0, 0, 'grid')
 
-    // The player and its settings
+    // spawn player
   player = game.add.sprite(32, game.world.height - 150, 'snakeball')
 
-    //  We need to enable physics on the player
+    //  physics for player
   game.physics.arcade.enable(player)
-
-    //  Player physics properties.
   player.body.collideWorldBounds = true
 
-    //  Finally some diamonds to collect
-  diamonds = game.add.group()
-
-  diamonds.enableBody = true
-
-    //  Create 12 diamonds evenly spaced apart
+    //  spawn food
+  food = game.add.group()
+  food.enableBody = true
   for (var i = 0; i < 12; i++) {
-    let diamond = diamonds.create(i * 70, 0, 'food')
+    let foods = food.create(i * 70, 0, 'food')
 
   }
 
-    //  Create the score text
+    //  create scoreboard
   scoreText = game.add.text(16, 16, '', { fontSize: '32px', fill: '#000' })
 
-    //  And bootstrap our controls
+    //  Enable arrowkeys
   cursors = game.input.keyboard.createCursorKeys()
 }
 
 function update () {
 
     //  Call callectionDiamond() if player overlaps with a diamond
-  game.physics.arcade.overlap(player, diamonds, collectDiamond, null, this)
+  game.physics.arcade.overlap(player, food, collectfood, null, this)
 
     // Configure the controls!
   if (cursors.left.isDown) {
@@ -86,9 +80,9 @@ function update () {
   }
 }
 
-function collectDiamond (player, diamond) {
+function collectfood (player, foods) {
     // Removes the diamond from the screen
-  diamond.kill()
+  foods.kill()
 
     //  And update the score
   score += 10
