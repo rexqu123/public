@@ -27,7 +27,7 @@ function create () {
   game.add.sprite(0, 0, 'grid')
 
     // spawn player
-  player = game.add.sprite(32, game.world.height - 150, 'snakeball')
+  player = game.add.sprite(400,300, 'snakeball')
 
     //  physics for player
   game.physics.arcade.enable(player)
@@ -50,10 +50,10 @@ function create () {
 
 function update () {
 
-    //  Call callectionDiamond() if player overlaps with a diamond
+    //  Call callectionfood() if player overlaps with food ball
   game.physics.arcade.overlap(player, food, collectfood, null, this)
 
-    // Configure the controls!
+    // controls
   if (cursors.left.isDown) {
     player.body.velocity.x = -150
 
@@ -70,21 +70,16 @@ function update () {
   } else {
   }
 
-    //  This allows the player to jump!
-  if (cursors.up.isDown && player.body.touching.down) {
-    player.body.velocity.y = -400
-  }
-    // Show an alert modal when score reaches 120
   if (score === 120) {
     score = 0
   }
 }
 
 function collectfood (player, foods) {
-    // Removes the diamond from the screen
+    // Removes the food
   foods.kill()
 
-    //  And update the score
+    // updates score
   score += 10
-  scoreText.text = 'Score: ' + score
+  scoreText.text = 'Score:' + score
 }
