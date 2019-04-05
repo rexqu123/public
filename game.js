@@ -14,9 +14,10 @@ let player
 
 function preload () {
   // Load & Define our game assets
-  game.load.image('sky', 'sky.png')
+  game.load.image('sky', 'grid.png')
   game.load.image('food', 'food.png')
   game.load.image('snakeball', 'circle.png')
+  game.load.image('snakeball2', 'circle2.png')
 }
 
 function create () {
@@ -38,7 +39,6 @@ function create () {
     //  Finally some diamonds to collect
   diamonds = game.add.group()
 
-    //  Enable physics for any object that is created in this group
   diamonds.enableBody = true
 
     //  Create 12 diamonds evenly spaced apart
@@ -86,8 +86,8 @@ function update () {
   }
     // Show an alert modal when score reaches 120
   if (score === 120) {
-    alert('You win!')
     score = 0
+    player = game.add.sprite(32, game.world.height - 150, 'snakeball2')
   }
 }
 
