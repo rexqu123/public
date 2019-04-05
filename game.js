@@ -78,3 +78,4 @@ function collectfood (player, foods) {
   score += 10
   scoreText.text = 'Score:' + score
 }
+}
