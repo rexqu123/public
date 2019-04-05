@@ -10,7 +10,7 @@ let scoreText
 let platforms
 let diamonds
 let cursors
-let player
+let player 
 
 function preload () {
   // Load & Define our game assets
@@ -26,28 +26,6 @@ function create () {
 
     //  A simple background for our game
   game.add.sprite(0, 0, 'sky')
-
-    //  The platforms group contains the ground and the 2 ledges we can jump on
-  platforms = game.add.group()
-
-    //  We will enable physics for any object that is created in this group
-  platforms.enableBody = true
-
-    // Here we create the ground.
-  let ground = platforms.create(0, game.world.height - 64, 'ground')
-
-    //  Scale it to fit the width of the game (the original sprite is 400x32 in size)
-  ground.scale.setTo(2, 2)
-
-    //  This stops it from falling away when you jump on it
-  ground.body.immovable = true
-
-    //  Now let's create two ledges
-  let ledge = platforms.create(400, 450, 'ground')
-  ledge.body.immovable = true
-
-  ledge = platforms.create(-75, 350, 'ground')
-  ledge.body.immovable = true
 
     // The player and its settings
   player = game.add.sprite(32, game.world.height - 150, 'woof')
