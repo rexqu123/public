@@ -74,7 +74,14 @@ function update () {
     player.body.velocity.x = -150
 
     player.animations.play('left')
-  } else if (cursors.right.isDown) {
+  } 
+  else if (cursors.up.isDown) {
+    player.body.velocity.y = 150
+  }
+  else if (cursors.down.isDown) {
+    player.body.velocity.y = -150
+  }
+  else if (cursors.right.isDown) {
     player.body.velocity.x = 150
 
     player.animations.play('right')
