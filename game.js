@@ -27,7 +27,7 @@ function create () {
   game.add.sprite(0, 0, 'sky')
 
     // The player and its settings
-  player = game.add.sprite(32, game.world.height - 150, 'woof')
+  player = game.add.sprite(32, game.world.height - 150, 'snakeball')
 
     //  We need to enable physics on the player
   game.physics.arcade.enable(player)
@@ -43,7 +43,7 @@ function create () {
 
     //  Create 12 diamonds evenly spaced apart
   for (var i = 0; i < 12; i++) {
-    let diamond = diamonds.create(i * 70, 0, 'diamond')
+    let diamond = diamonds.create(i * 70, 0, 'food')
 
   }
 
