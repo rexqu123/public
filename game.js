@@ -23,7 +23,7 @@ function create () {
     //  Enable ARCADE physics
   game.physics.startSystem(Phaser.Physics.ARCADE)
 
-    //  backround
+    //  backround titleSprite so the picture repeats itself
   game.add.tileSprite(0, 0,800,600, 'grid')
 
     // spawn player
@@ -42,7 +42,7 @@ function create () {
   }
 
     //  create scoreboard
-  scoreText = game.add.text(16, 16, '', { fontSize: '32px', fill: '#000' })
+  scoreText = game.add.text(16, 16, '', { fontSize: '32px', fill: '#238' })
 
     //  Enable arrowkeys
   cursors = game.input.keyboard.createCursorKeys()
@@ -69,11 +69,6 @@ function update () {
 
   } else {
   }
-
-  if (score === 120) {
-    score = 0
-  }
-}
 
 function collectfood (player, foods) {
     // Removes the food
