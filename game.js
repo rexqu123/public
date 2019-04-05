@@ -55,8 +55,6 @@ function create () {
 }
 
 function update () {
-    //  We want the player to stop when not moving
-  player.body.velocity.x = 0
 
     //  Call callectionDiamond() if player overlaps with a diamond
   game.physics.arcade.overlap(player, diamonds, collectDiamond, null, this)
@@ -76,8 +74,6 @@ function update () {
     player.body.velocity.x = 150
 
   } else {
-    // If no movement keys are pressed, stop the player
-    player.animations.stop()
   }
 
     //  This allows the player to jump!
@@ -87,7 +83,6 @@ function update () {
     // Show an alert modal when score reaches 120
   if (score === 120) {
     score = 0
-    player = (32, game.world.height - 150, 'snakeball2')
   }
 }
 
